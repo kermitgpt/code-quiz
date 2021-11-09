@@ -1,4 +1,29 @@
                     PSEUDO-CODE
 
 
-- 
+- Homework 4
+
+-- Need to create structure for 3 types of pages
+    -- Quiz start page (where user presses "Start Quiz")
+    -- Question page (will cycle through same format for each question page for quiz)
+    -- Initials page (submit)
+    -- Highscore page (logs all highscores w/ initials user entered.) Option to start quiz     again
+
+-- Array of question objects
+    -- Come up with theme I want to do for quiz, it can be anything
+    -- Multiple choice (4) options for answers to each question
+
+-- Array of answer objects?
+    -- Link this to the question objects, display 4 multiple choice options for each
+
+
+
+
+-- User local storage to store initials and user score
+
+
+ - Need a timer to start when quiz starts, for timer to count down and ADD time if answer is correct while SUBTRACT time if answer is wrong.
+    --setIntervalTimer
+
+
+
