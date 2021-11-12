@@ -1,105 +1,45 @@
 <p align="center">
-  <a href="" rel="noopener">
  <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Code Quiz</h3>
+<h1 align="center">Code Quiz</h1>
 
 ---
 
-<p align="center"> Few lines describing your project.
-    <br> 
-</p>
-
-## 📝 Table of Contents
-
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Deployment](#deployment)
-- [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
-
 ## 🧐 About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+In this project I created a quiz according to the assignment instructions of:
 
-## 🏁 Getting Started <a name = "getting_started"></a>
+1. Having a start page and clicking to start
+2. Quiz questions popping up on screen with multiple choice answers
+3. Timer counting down while taking quiz, adding time for correct answers and subtracting time for incorrect answers
+4. Scoreboard (called it Leaderboard on mine) for tracking initials & scores of players in local storage
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
-## 🔧 Running the tests <a name = "tests"></a>
-
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+Hope you enjoy the quiz, and good luck!
 
 ## 🎈 Usage <a name="usage"></a>
 
-Add notes about how to use the system.
+Kindly scroll through the website and enjoy semantic html and concise css.
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
-Add additional notes about how to deploy this on a live system.
+Deployed this website using GitHub pages. In order to do this I went to settings, scrolled down to GitHub pages, and selected the "master branch".
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
-
-## ✍️ Authors <a name = "authors"></a>
-
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
-
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+- # HTML
+- # CSS
+- # JavaScript
+- # Bootstrap
+- # JQuery
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+- 🏆
+- 💻
+
+## 🔗 Link to deployed website
+
+- https://mattgrogandev.github.io/code-quiz/
+
+## 🖼️ Image of final website
