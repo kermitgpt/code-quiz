@@ -12,25 +12,26 @@
     <link rel="stylesheet" href="./Assets/css/style.css" />
   </head>
   <body>
-    <div class="d-flex myauto bg-light align-items-center">
-      <div class="navBar">
-        <span class="currentScore"></span>
-      </div>
-      <div id="leaderBoardLink">
-        <a href="./leaderboard.html">LEADERBOARD</a>
-      </div>
-      <div>
-        <button>Start Quiz Again</button>
-      </div>
-      <div class="main">
-        <div class="startPage">
-          <p></p>
-        </div>
-        <div class="quizQuestions">
-
-        </div>
+    <div class="bg-dark min-vh-100">
+      <div class="d-flex justify-content-center">
+        <a href="./leaderboard.html"
+          ><button
+            id="leaderBoardBtn"
+            class="btn btn-default btn-lg bg-success mt-5"
+          >
+            LEADERBOARD
+          </button></a
+        >
       </div>
 
+      <br />
+
+      <div class="d-flex justify-content-center">
+        <span
+          id="runningTimer"
+          class="col-2 bg-secondary text-center text-white rounded m-5"
+          ><h1>Time Left:</h1>
+        </span>
       </div>
     </div>
     <!-- Scripts -->
