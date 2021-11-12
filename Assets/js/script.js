@@ -1,12 +1,21 @@
 //VARIABLES
-var startQuiz = $("#startQuizBtn");
-var score = 0;
-var questionPosition = 0;
 
+var startBox = $("#startBox");
+var startQuizBtn = $("#startQuizBtn");
+var questionCard = $("#questionCard");
+var questionText = $("#questionText");
+var choice1 = $("#choice1");
+var choice2 = $("#choice2");
+var choice3 = $("#choice3");
+var choice4 = $("#choice4");
+var endBox = $("#endBox");
+var userInitialsBtn = $("#submitScore");
 var userName = $("#userName");
 var userScore = $("#userScore");
 var playAgain = $("#playAgain");
 var countdown = $("#countdownClock");
+var score = 0;
+var questionPosition = 0;
 
 var qArray = [
   {
