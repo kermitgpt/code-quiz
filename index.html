@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="./Assets/css/style.css" />
   </head>
   <body>
-    <div class="bg-dark min-vh-100">
-      <div class="d-flex justify-content-center">
+    <div class="container bg-dark min-vh-100 w-100">
+      <div class="row justify-content-center">
         <a href="./leaderboard.html"
           ><button
+            type="button"
             id="leaderBoardBtn"
             class="btn btn-default btn-lg bg-success mt-5"
           >
@@ -26,12 +27,78 @@
 
       <br />
 
-      <div class="d-flex justify-content-center">
+      <div class="row justify-content-center">
         <span
           id="runningTimer"
-          class="col-2 bg-secondary text-center text-white rounded m-5"
+          class="col-4 col-md-6 bg-secondary text-center text-white rounded m-2"
           ><h1>Time Left:</h1>
+          <h1 id="countdownClock">5</h1>
         </span>
+      </div>
+
+      <br />
+
+      <!-- INTRO SCREEN/START DISPLAY -->
+      <div id="startBox" class="row justify-content-center">
+        <div class="row col-9 bg-light justify-content-center">
+          <p class="h1 col-5 text-center bg-secondary text-white">QUIZ</p>
+          <p class="row h3 col-12 text-center">
+            You ready to start the quiz? If so click the button below. You have
+            40 seconds to complete the quiz. Every correct answer will add 5
+            seconds to your time and an incorrect answer will subtract 5
+            seconds. GOOD LUCK!
+          </p>
+          <button
+            type="button"
+            id="startQuizBtn"
+            class="h3 col-3 btn btn-default btn-info"
+          >
+            START QUIZ
+          </button>
+        </div>
+      </div>
+
+      <br />
+
+      <!-- QUIZ QUESTIONS DISPLAY -->
+      <div class="container col-12 bg-light">
+        <p id="questionTitle" class="row col-12 h2 justify-content-center">
+          asdf
+        </p>
+        <br />
+        <p id="questionText" class="row col-12 h3 justify-content-center">
+          asdf
+        </p>
+        <div class="col-12 gx-2 p-2 text-center">
+          <button id="choice1" class="btn btn-lg btn-primary" type="button">
+            Button
+          </button>
+          <button id="choice2" class="btn btn-lg btn-primary" type="button">
+            Button
+          </button>
+          <button id="choice3" class="btn btn-lg btn-primary" type="button">
+            Button
+          </button>
+          <button id="choice4" class="btn btn-lg btn-primary" type="button">
+            Button
+          </button>
+        </div>
+      </div>
+      <br />
+
+      <!-- END OF QUIZ PAGE W/ INPUT FORM -->
+      <div id="endBox" class="row justify-content-center">
+        <div class="row col-9 bg-light justify-content-center">
+          <p class="row h3 col-12 text-center">
+            Congrats! You've just finished the quiz! Please input your initials
+            below to be added to the leaderboard.
+          </p>
+          <form>
+            <button type="submit" id="submitScore" class="btn btn-lg btn-info">
+              SUBMIT
+            </button>
+          </form>
+        </div>
       </div>
     </div>
     <!-- Scripts -->
