@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+  </head>
+  <body>
+    <!-- TABLE FOR LEADERBOARD W/ USERNAME AND SCORE -->
+    <div class="bg-dark min-vh-100">
+
+        <div class="d-flex justify-content-center">
+            <a href="./index.html"><button id="playAgain" class="btn btn-default btn-lg bg-success mt-5">PLAY AGAIN</button></a>
+        </div>
+
+        <br>
+
+        <div class="container">
+            <table class=" table justify-content-center text-center mt-5 bg-secondary text-white rounded">
+              <thead id="leaderBoardTable" class="w-100 mt-10">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">PLAYER</th>
+                  <th scope="col">PLAYER SCORE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td id="userName" colspan="1"></td>
+                  <td id="userScore"></td>
+                </tr>
+              </tbody>
+        </div>
+    </div>
+    </table>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

@@ -7,15 +7,25 @@
     -- Quiz start page (where user presses "Start Quiz")
     -- Question page (will cycle through same format for each question page for quiz)
     -- Initials page (submit)
-    -- Highscore page (logs all highscores w/ initials user entered.) Option to start quiz     again
+    -- Highscore page (logs all highscores w/ initials user entered.) Option to start quiz again
+
+
+HTML:
+-- Provide basic format for each page:
+    -- 
+
+
 
 -- Array of question objects
     -- Come up with theme I want to do for quiz, it can be anything
     -- Multiple choice (4) options for answers to each question
 
+
+-- use .hide() to hide specific questions, then .show() once user has answered each question
+
 -- Array of answer objects?
     -- Link this to the question objects, display 4 multiple choice options for each
-
+    --Reference 05-third-party-apis #09
 
 
 
@@ -26,4 +36,8 @@
     --setIntervalTimer
 
 
+
+-- At the top of the application get local storage. If it doesn't exist create variable to save it. (Start with an empty array at the top?)
+
+-- when user puts in initials thats when we add it to the array, putting it into the empty array that is created in it's place
 
