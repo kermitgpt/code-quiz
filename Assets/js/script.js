@@ -1,22 +1,5 @@
 //VARIABLES
 
-var startBox = $("#startBox");
-var startQuizBtn = $("#startQuizBtn");
-var questionCard = $("#questionCard");
-var questionText = $("#questionText");
-var choice1 = $("#choice1");
-var choice2 = $("#choice2");
-var choice3 = $("#choice3");
-var choice4 = $("#choice4");
-var endBox = $("#endBox");
-var userInitialsBtn = $("#submitScore");
-var userName = $("#userName");
-var userScore = $("#userScore");
-var playAgain = $("#playAgain");
-var countdown = $("#countdownClock");
-var score = 0;
-var questionPosition = 0;
-
 var qArray = [
   {
     questionText:
@@ -76,6 +59,87 @@ var qArray = [
   },
 ];
 
+var startBox = document.getElementById("startBox");
+var startQuizBtn = document.getElementById("startQuizBtn");
+var questionCard = document.getElementById("questionCard");
+var questionText = document.getElementById("questionText");
+var choice1 = document.getElementById("choice1");
+var choice2 = document.getElementById("choice2");
+var choice3 = document.getElementById("choice3");
+var choice4 = document.getElementById("choice4");
+var questionPosition = 0;
+var endBox = document.getElementById("endBox");
+var userInitialsBtn = document.getElementById("submitScore");
+var userName = document.getElementById("userName");
+var userScore = document.getElementById("userScore");
+var playAgain = document.getElementById("playAgain");
+var countdown = document.getElementById("countdownClock");
+var score = 0;
+var correctAnswer = 0;
+var wrongAnswer = 0;
+var wrapper = document.getElementById("wrapper");
+let questionIndex = 0;
+
+//Hide questions card and end of quiz screen to start
+
 //FUNCTIONS
 
 //EVENT LISTENERS
+
+//Starts quiz and hides startBox then displays questionCards
+startQuizBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log(e);
+  startBox.classList.add("hide");
+  questionCard.classList.remove("hide");
+});
+
+function renderQuestions() {
+  var questionList = "";
+  qArray.forEach(function (question, index) {
+    let choices = "";
+    question.answerChoices.forEach(function (choice, index) {
+      const button = `
+        <button id="choice${index}" class="btn btn-lg btn-primary choiceBtn ${
+        choice === question.correctChoice ? "correct-answer" : ""
+      }">${choice}</button>
+      `;
+      choices += button;
+    });
+    questionList += `
+      <div class="choice hide">
+        <p id="questionText" class="row col-12 h3 justify-content-center">
+          ${question.questionText}
+        </p>
+        <div class="col-12 gx-2 p-2 text-center">
+        ${choices}
+        </div>
+      </div>
+    `;
+  });
+  return questionList;
+}
+
+document.addEventListener("click", function (event) {
+  console.log(event.target);
+  if (event.target.classList.contains("choiceBtn")) {
+    if (event.target.classList.contains("correct-answer")) {
+      alert("Correct Answer!");
+    } else {
+      alert("Wrong Answer!");
+    }
+    if (questionIndex >= 9) {
+      document.querySelector("#endBox").classList.remove("hide");
+    }
+    document.querySelectorAll(".choice")[questionIndex].classList.add("hide");
+    document
+      .querySelectorAll(".choice")
+      [++questionIndex].classList.remove("hide");
+  }
+});
+
+wrapper.innerHTML = renderQuestions();
+
+document.querySelector(".choice").classList.remove("hide");
+
+console.log(renderQuestions());

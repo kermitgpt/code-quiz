@@ -5,3 +5,11 @@
 #runningTimer {
   font-size: 60px;
 }
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block;
+}
