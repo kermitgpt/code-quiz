@@ -151,8 +151,9 @@ if (game) {
 
   document.addEventListener("click", function (event) {
     if (event.target.classList.contains("endBtn")) {
+      event.preventDefault();
       setLocal();
-      window.location.href("./leaderboard.html");
+      window.location.href = "leaderboard.html";
     }
   });
 
@@ -210,6 +211,10 @@ function getLocal() {
     return [];
   }
   return JSON.parse(retrieve);
+}
+
+function displayLeaderBoard() {
+  window.location.replace("./leaderboard.html");
 }
 
 //Common practice - functions should be small and do ONE thing
