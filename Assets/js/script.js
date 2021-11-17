@@ -75,13 +75,16 @@ var userScore = document.getElementById("userScore");
 var playAgain = document.getElementById("playAgain");
 var countdown = document.getElementById("countdownClock");
 var score = 10;
-var time = qArray.length * 3;
+var time = qArray.length * 0.2;
 var correctAnswer = 0;
 var wrongAnswer = 0;
 var wrapper = document.getElementById("wrapper");
 let questionIndex = 0;
 var timer;
-var finalScore = document.getElementsByClassName("finalScore");
+var finalScore = document.querySelector(".finalScore");
+var initials = document.querySelector(".initials");
+var wrapper2 = document.getElementById("leaderWrapper");
+var game = document.getElementById("game");
 
 //Hide questions card and end of quiz screen to start
 
@@ -90,28 +93,29 @@ var finalScore = document.getElementsByClassName("finalScore");
 //EVENT LISTENERS
 
 //Starts quiz and hides startBox then displays questionCards
-startQuizBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  console.log(e);
-  startBox.classList.add("hide");
-  questionCard.classList.remove("hide");
-  timer = setInterval(clock, 1000);
-  countdown.textContent = time;
-});
+if (game) {
+  startQuizBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    console.log(e);
+    startBox.classList.add("hide");
+    questionCard.classList.remove("hide");
+    timer = setInterval(clock, 1000);
+    countdown.textContent = time;
+  });
 
-function renderQuestions() {
-  var questionList = "";
-  qArray.forEach(function (question, index) {
-    let choices = "";
-    question.answerChoices.forEach(function (choice, index) {
-      const button = `
+  function renderQuestions() {
+    var questionList = "";
+    qArray.forEach(function (question, index) {
+      let choices = "";
+      question.answerChoices.forEach(function (choice, index) {
+        const button = `
         <button id="choice${index}" class="btn btn-lg btn-primary choiceBtn ${
-        choice === question.correctChoice ? "correct-answer" : ""
-      }">${choice}</button>
+          choice === question.correctChoice ? "correct-answer" : ""
+        }">${choice}</button>
       `;
-      choices += button;
-    });
-    questionList += `
+        choices += button;
+      });
+      questionList += `
       <div class="choice hide">
         <p id="questionText" class="row col-12 h3 justify-content-center">
           ${question.questionText}
@@ -121,48 +125,91 @@ function renderQuestions() {
         </div>
       </div>
     `;
+    });
+    return questionList;
+  }
+  document.addEventListener("click", function (event) {
+    console.log(event.target);
+    if (event.target.classList.contains("choiceBtn")) {
+      if (event.target.classList.contains("correct-answer")) {
+        score += 1;
+        time += 5;
+      } else {
+        score -= 1;
+        time += 5;
+      }
+      if (questionIndex >= 9) {
+        endGame();
+        /*       document.querySelector("#endBox").classList.remove("hide"); */
+      }
+      document.querySelectorAll(".choice")[questionIndex].classList.add("hide");
+      document
+        .querySelectorAll(".choice")
+        [++questionIndex].classList.remove("hide");
+    }
   });
-  return questionList;
-}
 
-document.addEventListener("click", function (event) {
-  console.log(event.target);
-  if (event.target.classList.contains("choiceBtn")) {
-    if (event.target.classList.contains("correct-answer")) {
-      score += 1;
-      time += 5;
-    } else {
-      score -= 1;
-      time += 5;
+  document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("endBtn")) {
+      setLocal();
+      window.location.href = "leaderboard.html";
     }
-    if (questionIndex >= 9) {
-      document.querySelector("#endBox").classList.remove("hide");
+  });
+
+  //Scoping, Hoisting
+
+  if (wrapper) wrapper.innerHTML = renderQuestions();
+
+  document.querySelector(".choice").classList.remove("hide");
+
+  console.log(renderQuestions());
+
+  function clock() {
+    time--;
+    countdown.textContent = time;
+    if (time <= 0) {
+      clearInterval(timer);
+      endGame();
     }
-    document.querySelectorAll(".choice")[questionIndex].classList.add("hide");
-    document
-      .querySelectorAll(".choice")
-      [++questionIndex].classList.remove("hide");
   }
-});
 
-document.addEventListener("click", function (event) {
-  if (event.target.classList.contains("endBtn")) {
-    localStorage.setItem("");
-  }
-});
-
-wrapper.innerHTML = renderQuestions();
-
-document.querySelector(".choice").classList.remove("hide");
-
-console.log(renderQuestions());
-
-function clock() {
-  time--;
-  countdown.textContent = time;
-  if (time <= 0) {
+  function endGame() {
     document.querySelector("#questionCard").classList.add("hide");
     document.querySelector("#endBox").classList.remove("hide");
-    clearInterval(timer);
+    finalScore.textContent = score;
   }
 }
+
+function renderLeaderBoard() {
+  var rows = "";
+  getLocal().forEach(function ({ initials, score }, i) {
+    rows += `<tr>
+      <th scope="row">${i + 1}</th>
+      <td id="userName" colspan="1">${initials}</td>
+      <td id="userScore">${score}</td>
+    </tr>`;
+  });
+  wrapper2.innerHTML = rows;
+}
+
+if (document.getElementById("leaderBoard")) {
+  renderLeaderBoard();
+}
+
+function setLocal() {
+  let result = getLocal();
+  let userValues = { initials: initials.value, score: score };
+  result.push(userValues);
+  let finalValues = JSON.stringify(result);
+  localStorage.setItem("User-Info", finalValues);
+}
+
+function getLocal() {
+  var retrieve = localStorage.getItem("User-Info");
+  if (retrieve === null) {
+    return [];
+  }
+  return JSON.parse(retrieve);
+}
+
+//Common practice - functions should be small and do ONE thing
