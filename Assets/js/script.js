@@ -75,7 +75,7 @@ var userScore = document.getElementById("userScore");
 var playAgain = document.getElementById("playAgain");
 var countdown = document.getElementById("countdownClock");
 var score = 10;
-var time = qArray.length * 0.2;
+var time = qArray.length * 4;
 var correctAnswer = 0;
 var wrongAnswer = 0;
 var wrapper = document.getElementById("wrapper");
@@ -152,7 +152,7 @@ if (game) {
   document.addEventListener("click", function (event) {
     if (event.target.classList.contains("endBtn")) {
       setLocal();
-      window.location.href = "leaderboard.html";
+      window.location.href("./leaderboard.html");
     }
   });
 
