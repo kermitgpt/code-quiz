@@ -74,11 +74,14 @@ var userName = document.getElementById("userName");
 var userScore = document.getElementById("userScore");
 var playAgain = document.getElementById("playAgain");
 var countdown = document.getElementById("countdownClock");
-var score = 0;
+var score = 10;
+var time = qArray.length * 3;
 var correctAnswer = 0;
 var wrongAnswer = 0;
 var wrapper = document.getElementById("wrapper");
 let questionIndex = 0;
+var timer;
+var finalScore = document.getElementsByClassName("finalScore");
 
 //Hide questions card and end of quiz screen to start
 
@@ -92,6 +95,8 @@ startQuizBtn.addEventListener("click", function (e) {
   console.log(e);
   startBox.classList.add("hide");
   questionCard.classList.remove("hide");
+  timer = setInterval(clock, 1000);
+  countdown.textContent = time;
 });
 
 function renderQuestions() {
@@ -124,9 +129,11 @@ document.addEventListener("click", function (event) {
   console.log(event.target);
   if (event.target.classList.contains("choiceBtn")) {
     if (event.target.classList.contains("correct-answer")) {
-      alert("Correct Answer!");
+      score += 1;
+      time += 5;
     } else {
-      alert("Wrong Answer!");
+      score -= 1;
+      time += 5;
     }
     if (questionIndex >= 9) {
       document.querySelector("#endBox").classList.remove("hide");
@@ -138,8 +145,24 @@ document.addEventListener("click", function (event) {
   }
 });
 
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("endBtn")) {
+    localStorage.setItem("");
+  }
+});
+
 wrapper.innerHTML = renderQuestions();
 
 document.querySelector(".choice").classList.remove("hide");
 
 console.log(renderQuestions());
+
+function clock() {
+  time--;
+  countdown.textContent = time;
+  if (time <= 0) {
+    document.querySelector("#questionCard").classList.add("hide");
+    document.querySelector("#endBox").classList.remove("hide");
+    clearInterval(timer);
+  }
+}
